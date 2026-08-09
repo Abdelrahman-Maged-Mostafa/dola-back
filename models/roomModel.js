@@ -12,10 +12,10 @@ const RoomSchema = new mongoose.Schema({
   name: { type: String, required: true },
   password: { type: String, required: true },
   createdAt: { type: Date, default: Date.now() },
-  messages: [ItemSchema],
+  messages: [messagesSchema],
 });
 
 // Create the Order model
-const Room = mongoose.model("Order", OrderSchema);
+const Room = mongoose.model("Room", RoomSchema);
 
 module.exports = Room;
