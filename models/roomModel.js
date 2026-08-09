@@ -9,7 +9,7 @@ const messagesSchema = new mongoose.Schema({
 
 // Define the Order schema
 const RoomSchema = new mongoose.Schema({
-  name: { type: String, required: true },
+  name: { type: String, required: true ,unique: [true, 'This email aready have account'] },
   password: { type: String, required: true },
   createdAt: { type: Date, default: Date.now() },
   messages: [messagesSchema],
