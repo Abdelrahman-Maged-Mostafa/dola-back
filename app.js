@@ -27,6 +27,13 @@ app.use(helmet());
 //this will make app work with post and get
 app.use(cors());
 //this will open all methods
+app.use(cors({
+  origin: true, // تسمح لأي Origin بـ انعكاسه تلقائياً
+  credentials: true, // لو بتستخدم Cookies أو Authorization headers
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept']
+}));
+
 app.options(`*`, cors());
 //to know some info about your requestes in development
 if (process.env.NODE_ENV === "development") app.use(morgan(`dev`));
