@@ -13,7 +13,7 @@ const cors = require("cors");
 const AppError = require("./utils/appError");
 const { middlewareError } = require("./controllers/errorController");
 const roomRouter = require("./routes/roomRouter");
-const viewRouter = require("./routes/viewRouter");
+const viewRouter = require("./routes/viewRouters");
 
 const app = express();
 /////
