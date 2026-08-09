@@ -54,7 +54,7 @@ exports.addMessage = catchAsync(async (req, res, next) => {
     message: req.body.message,
   };
   const newRoom = await Room.findByIdAndUpdate(req.params.id, {
-    messages: [...messages, newMessage],
+    messages: [...room.messages, newMessage],
   });
 
   await res.status(201).json({
