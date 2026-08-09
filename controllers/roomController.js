@@ -12,7 +12,8 @@ exports.createNewRoom = catchAsync(async (req, res, next) => {
 });
 
 exports.getRoom = catchAsync(async (req, res, next) => {
-  const room = await Room.findOne({ name: req.body.name });
+  const { name, password } = req.query;
+  const room = await Room.findOne({ name: name });
   if (!room)
     return next(
       new AppError(
@@ -22,7 +23,7 @@ exports.getRoom = catchAsync(async (req, res, next) => {
       ),
     );
 
-  if (room.password !== req.body.password)
+  if (room.password !== password)
     return next(
       new AppError(
         curUser.notActiveMessage || "Room mwgood pas el password 3lt ya 7mar",
